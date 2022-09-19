@@ -76,7 +76,7 @@
 
   <url>
     <loc>https://blog.issey.top/</loc>
-    <lastmod>2022-09-18</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -84,7 +84,7 @@
   
   <url>
     <loc>https://blog.issey.top/tags/hexo/</loc>
-    <lastmod>2022-09-18</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -93,7 +93,7 @@
   
   <url>
     <loc>https://blog.issey.top/categories/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2022-09-18</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
