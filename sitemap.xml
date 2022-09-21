@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.issey.top/article/f84b08dc3a2c/</loc>
+    
+    <lastmod>2022-09-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.issey.top/article/1c4151e0792a/</loc>
     
     <lastmod>2022-09-21</lastmod>
@@ -233,6 +242,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://blog.issey.top/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2022-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -258,6 +274,13 @@
   
   <url>
     <loc>https://blog.issey.top/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2022-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.issey.top/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
