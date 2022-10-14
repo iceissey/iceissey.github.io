@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>【从FT到DFT和FFT】（二）从傅里叶变换到离散傅里叶变换</title>
+      <link href="/article/5921f880c513/"/>
+      <url>/article/5921f880c513/</url>
+      
+        <content type="html"><![CDATA[<h1 id="推荐阅读">推荐阅读</h1><p><strong>前置阅读</strong></p><ol type="1"><li><ahref="https://www.issey.top/article/bdbeeb7f1cb2/">【从FT到DFT和FFT】（一）从傅里叶级数到傅里叶变换的详细公式推导| issey的博客</a></li></ol><p><strong>参考教程</strong></p><ul><li><ahref="https://binaryai.blog.csdn.net/article/details/122244167">傅里叶变换落地：离散傅里叶变换（DFT）<em>二进制人工智能的博客-CSDN博客</em></a></li><li><ahref="https://blog.csdn.net/qq_43409114/article/details/104870977">傅里叶变换、离散傅里叶变换(DFT)、快速傅里叶变换(FFT)详解_ReWz的博客-CSDN博客_</a></li><li><ahref="https://www.cnblogs.com/ymzm204/p/12728706.html">二维离散傅里叶变换计算过程详析- EAo - 博客园</a></li></ul><h1 id="前言">前言</h1><p>本篇不会像上一篇那样推导的详细，原因其一是最近时间不够，在这样推下去就要落学习的进度了；其二是DFT涉及数字信号方面的知识，前置知识本人了解的较少。如果之后有机会，可能会倒回来推公式。只能说是心有余而力不足了。</p><p>本篇主要为从FT到DFT的演化的公式总结，另外引出二维离散傅里叶公式。</p><hr /><p><strong>为什么需要离散傅里叶</strong></p><p>在计算机中处理数据都是离散的，且无法直接进行连续积分运算，所以需要对傅里叶变换进行离散化。</p><h1id="从连续傅里叶级数fs到离散傅里叶级数dfs">从连续傅里叶级数（FS）到离散傅里叶级数(DFS)</h1><p>回顾上篇我们推导得出的傅里叶级数公式;</p><p>对于周期为T的函数：<span class="math inline">\(f(t) =f(t+T)\)</span></p><p>它的傅里叶级数为： <span class="math display">\[\begin{split}&amp; F(t) = \frac{1}{T}\int_0^Tf(t)e^{-inwt}dt \\&amp; f(t) = \sum_{-\infty}^{\infty}F(t)e^{inwt}\end{split}\]</span> 现在将<span class="math inline">\(f(t)\)</span>改为离散的周期序列，</p><p>对于周期为N的序列<span class="math inline">\(x[k] = x[k+N]\)</span>，将连续傅里叶级数改为离散傅里叶级数： <span class="math display">\[\begin{split}&amp; X[k] = \sum_{n=0}^{N-1}x[n]e^{-i\frac{2\pi}{N}nk} \\&amp; x[k] = \frac{1}{N}\sum_{n=0}^{N-1}X[n]e^{i\frac{2\pi}{N}nk}\end{split}\]</span></p><blockquote><p>推导暂时略过。</p></blockquote><h1id="从离散傅里叶级数dfs到离散傅里叶变换dft">从离散傅里叶级数(DFS)到离散傅里叶变换（DFT）</h1><p>实际上DFT和DFS的公式是一样的，但是N的含义不同。可以这样理解：</p><p>对于周期离散序列，N就是它的周期，我们使用离散傅里叶级数来变换它。而对于非周期离散序列，我们首先回顾在上篇中推导傅里叶变换时的思路：<code>一个非周期函数可以理解为一个周期为无穷的函数。</code>非周期函数的x可以无限延长，所以我们将它的周期设置为无穷大。</p><p>而计算机中处理的序列始终是<strong>有限序列</strong>，用同样的思想，我们可以将<code>非周期离散序列的周期理解为它本身的长度</code>。如果一个非周期有限序列的长度为N，那我们可以理解为它的周期为N。</p><p>于是对于有限非周期离散序列，离散傅里叶公式可等同于周期为它本身的离散傅里叶级数。</p><p>为了便于区分，令有限非周期离散序列的长度为M，那么DFT的公式为： <spanclass="math display">\[\begin{split}&amp; X[k] = \sum_{m=0}^{M-1}x[m]e^{-i\frac{2\pi}{M}mk} \\&amp; x[k] = \frac{1}{M}\sum_{m=0}^{M-1}X[m]e^{i\frac{2\pi}{M}mk}\end{split}\]</span> 其实也是有证明过程的，不过这里还是先略过了。</p><h1 id="二维离散傅里叶变换">二维离散傅里叶变换</h1><blockquote><p>详细推导过程请见参考连接。</p></blockquote><p>二维离散傅里叶变换主要用于图像处理。</p><p>令<span class="math inline">\(f(x,y)\)</span>代表一副大小为<spanclass="math inline">\(M\times N\)</span>的数字图像，其中：<spanclass="math inline">\(x = 0,1,2,...,M-1;y = 0,1,2,...,N-1\)</span>。</p><p>二维离散傅里叶变换公式如下： <span class="math display">\[\begin{split}&amp; F(u,v) =\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f(x,y)e^{-i2\pi(\frac{ux}{M}+\frac{vy}{N})}\\&amp; f(u,v) =\frac{1}{MN}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}F(x,y)e^{i2\pi(\frac{ux}{M}+\frac{vy}{N})}\end{split}\]</span> 注：第一个式子为正变换，第二个式子为反变换。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图像处理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 正交变换 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【从FT到DFT和FFT】（一）从傅里叶级数到傅里叶变换的详细公式推导</title>
       <link href="/article/bdbeeb7f1cb2/"/>
       <url>/article/bdbeeb7f1cb2/</url>
